@@ -1,0 +1,83 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>
+</head>
+<body>
+    <input type="text" id="search" placeholder="Search commands...">
+    <table class="tableList">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Command</th>
+                <th>Tags</th>
+            </tr>
+        </thead>
+        <tbody id="tableListBody"></tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tableBody = document.getElementById('tableListBody');
+            const searchBox = document.getElementById('search');
+
+            fetch('/index.json')
+                .then(response => response.json())
+                .then(data => {
+                    displayResults(data);
+
+                    searchBox.addEventListener('input', function() {
+                        const query = searchBox.value.toLowerCase();
+                        const filteredData = data.filter(item => {
+                            const commandText = item.command.toLowerCase();
+                            const tagsText = item.tags.join(' ').toLowerCase();
+                            return commandText.includes(query) || tagsText.includes(query);
+                        });
+                        displayResults(filteredData);
+                    });
+                });
+
+            function displayResults(results) {
+                tableBody.innerHTML = '';
+                if (results.length > 0) {
+                    results.forEach(item => {
+                        const row = document.createElement('tr');
+
+                        const titleCell = document.createElement('td');
+                        titleCell.innerHTML = `<strong>${item.title}</strong>`;
+                        row.appendChild(titleCell);
+
+                        const commandCell = document.createElement('td');
+                        commandCell.innerHTML = `<span class="command-text">${item.command}</span>`;
+                        row.appendChild(commandCell);
+
+                        const tagsCell = document.createElement('td');
+                        const tagsList = document.createElement('ul');
+                        tagsList.classList.add('tagsList');
+                        item.tags.forEach(tag => {
+                            const tagItem = document.createElement('li');
+                            const tagLink = document.createElement('a');
+                            tagLink.href = `/tags/${tag}`;
+                            tagLink.textContent = tag;
+                            tagItem.appendChild(tagLink);
+                            tagsList.appendChild(tagItem);
+                        });
+                        tagsCell.appendChild(tagsList);
+                        row.appendChild(tagsCell);
+
+                        tableBody.appendChild(row);
+                    });
+                } else {
+                    const noResultsRow = document.createElement('tr');
+                    const noResultsCell = document.createElement('td');
+                    noResultsCell.colSpan = 3;
+                    noResultsCell.textContent = 'No results found';
+                    tableBody.appendChild(noResultsRow);
+                }
+            }
+        });
+    </script>
+</body>
+</html> -->

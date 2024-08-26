@@ -1,0 +1,1 @@
+Welcome to my dinky little blog. Inspired by [WADComs](https://wadcoms.github.io/ "WADComs"), [GTFOBins](https://gtfobins.github.io/ "GTFOBins") and [LOLBAS](https://lolbas-project.github.io/ "LOLBAS"). Never perfect, always working.

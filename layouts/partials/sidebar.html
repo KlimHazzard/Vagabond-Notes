@@ -1,0 +1,9 @@
+<aside class="sidebar">
+    <nav>
+        <ul>
+            {{ range where .Site.RegularPages "Section" "posts" }}
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{ end }}
+        </ul>
+    </nav>
+</aside>

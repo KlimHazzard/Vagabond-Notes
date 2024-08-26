@@ -1,0 +1,21 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Vagabond Notes'
+theme = 'hugo-index'
+
+[params]
+    hideAllTagsinHome = false
+    buildSearchIndex = true
+    [params.headers]
+        key = "Command"
+
+[taxonomies]
+    tag = "tags"
+    credentials = "credentials"
+    phase = "phase"
+    services = "services"
+    environment = "target"
+    command = "command"
+
+[outputs]
+    home = ["HTML", "JSON"]

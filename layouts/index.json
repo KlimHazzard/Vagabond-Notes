@@ -1,0 +1,17 @@
+{{- $commands := where .Site.RegularPages "Section" "commands" -}}
+[
+  {{- $first := true -}}
+  {{- range $commands -}}
+    {{- if not $first -}},{{- end -}}
+    {
+      "title": "{{ .Title }}",
+      "date": "{{ .Date }}",
+      "credentials": {{ .Params.credentials | jsonify }},
+      "phase": {{ .Params.phase | jsonify }},
+      "services": {{ .Params.services | jsonify }},
+      "target": {{ .Params.target | jsonify }},
+      "command": {{ .Params.command | jsonify }}
+    }
+    {{- $first = false -}}
+  {{- end -}}
+]

@@ -1,0 +1,29 @@
+<table class="tableList">
+  <thead>
+    <tr>
+      {{- with site.Params.headers }}
+      <th>{{.key}}</th>
+      {{- end }}
+    </tr>
+  </thead>
+  <tbody id="tableListBody">
+    {{- range where .Site.RegularPages "Section" "commands" }}
+    <tr>
+      <td><code>{{ .Params.command }}</code></td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="tagsList">
+          {{- range $taxonomyName, $taxonomy := .Site.Taxonomies }}
+            {{- if ne $taxonomyName "command" }}
+              {{- range $termName, $term := $taxonomy }}
+                <li><a >{{ $termName }}</a></li>
+              {{- end }}
+            {{- end }}
+          {{- end }}
+        </ul>
+      </td>
+    </tr>
+    {{- end }}
+  </tbody>
+</table>

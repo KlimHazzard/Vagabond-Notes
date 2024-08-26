@@ -1,0 +1,13 @@
+{{- if not site.Params.hideAllTagsinHome }}
+<div class="all-tags">
+  <ul class="tagsList">
+    {{- range $taxonomyName, $taxonomy := .Site.Taxonomies }}
+    {{- if ne $taxonomyName "command" }}
+        {{- range $termName, $term := $taxonomy }}
+            <li><a href="javascript:void(0);" class="tag-link" data-term="{{ $termName }}">{{ $termName }}</a></li>
+        {{- end }}
+    {{- end }}
+  {{- end }}
+  </ul>
+</div>
+{{- end }}
