@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Command on Vagabond Notes</title>
+    <link>http://localhost:1313/command/</link>
+    <description>Recent content in Command on Vagabond Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/command/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kerbrute Userenum --Dc 10.10.10.1 -D Host.domain -O UsernameOutput.out Userlist.txt
+</title>
+      <link>http://localhost:1313/command/kerbrute-userenum---dc-10.10.10.1--d-host.domain--o-usernameoutput.out-userlist.txt/</link>
+      <pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/command/kerbrute-userenum---dc-10.10.10.1--d-host.domain--o-usernameoutput.out-userlist.txt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crackmapexec Smb 10.10.10.1 -U &#39;&#39; -P &#39;&#39;
+</title>
+      <link>http://localhost:1313/command/crackmapexec-smb-10.10.10.1--u---p-/</link>
+      <pubDate>Fri, 23 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/command/crackmapexec-smb-10.10.10.1--u---p-/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,17 @@
+[{
+      "title": "Kerbrute Username",
+      "date": "2024-08-25 00:00:00 +0000 UTC",
+      "credentials": ["Username"],
+      "phase": ["Enumeration"],
+      "services": ["Kerberos"],
+      "target": ["Windows"],
+      "command": "kerbrute userenum --dc 10.10.10.1 -d host.domain -o usernameOutput.out userlist.txt\n"
+    },{
+      "title": "Crackmapexec",
+      "date": "2024-08-23 00:00:00 +0000 UTC",
+      "credentials": ["No credentials"],
+      "phase": ["Enumeration"],
+      "services": ["SMB"],
+      "target": ["Windows"],
+      "command": "crackmapexec smb 10.10.10.1 -u '' -p ''\n"
+    }]
