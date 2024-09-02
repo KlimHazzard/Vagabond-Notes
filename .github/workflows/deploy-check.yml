@@ -1,0 +1,50 @@
+name: Hugo Build and Test
+
+on:
+  push:
+    branches:
+      - '**'  # This triggers on all branches
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      - name: Install dependencies
+        run: sudo apt-get install -y libcurl4-openssl-dev
+
+      - name: Build the website
+        run: hugo --minify
+
+      - name: Upload build artifacts (Optional)
+        uses: actions/upload-artifact@v2
+        with:
+          name: hugo-build
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/main'  # Deploy only on non-main branches
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      - name: Build the website
+        run: hugo --minify
+
+      # Optional: Add a step here to deploy to a preview environment like Netlify or GitHub Pages
