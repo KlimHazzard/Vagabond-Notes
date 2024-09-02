@@ -19,27 +19,64 @@
   </head>
   <body><header>
   <h1>
+    <a><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+    </a>
     <a href="http://localhost:1313/">
       
       <span>Vagabond Notes</span>
     </a>
     <span class="hl">/</span>
     <a href="http://localhost:1313/services/smb/">
-      <span>SMB</span>
+      <span class="hl">SMB</span>
     </a>
   </h1>
   <p class="desc"></p>
 </header>
 <div class="main">
 
-<ul class="tagsList single">
-  
-  <li><a href="http://localhost:1313/tags/smb/">SMB</a></li>
-  
-</ul>
-
-<div class="content"><p>Content about SMB service goes here.</p>
-</div></div><footer>
+<div class="content"></div><table class="tableList">
+  <thead>
+    <tr>
+      <th>Command</th>
+    </tr>
+  </thead>
+  <tbody id="tableListBody">
+    <tr>
+      <td><code>kerbrute userenum --dc 10.10.10.1 -d host.domain -o usernameOutput.out userlist.txt
+</code></td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="tagsList">
+                <li><a >no credentials</a></li>
+                <li><a >username</a></li>
+                <li><a >enumeration</a></li>
+                <li><a >kerberos</a></li>
+                <li><a >smb</a></li>
+                <li><a >windows</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>crackmapexec smb 10.10.10.1 -u &#39;&#39; -p &#39;&#39;
+</code></td>
+    </tr>
+    <tr>
+      <td>
+        <ul class="tagsList">
+                <li><a >no credentials</a></li>
+                <li><a >username</a></li>
+                <li><a >enumeration</a></li>
+                <li><a >kerberos</a></li>
+                <li><a >smb</a></li>
+                <li><a >windows</a></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div><footer>
     <hr>
     <div class="footer-text">
         <div>© 2024 Vagabond Notes</div>

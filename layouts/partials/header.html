@@ -1,5 +1,8 @@
 <header>
   <h1>
+    <a>
+      {{- partial "side-nav-button.html" . }}
+    </a>
     <a href="{{ "" | absURL }}">
       {{ with site.Params.TitleIcon }}<img src="{{ . | absURL }}" alt="{{ site.Title }}">{{ end }}
       <span>{{ site.Title }}</span>

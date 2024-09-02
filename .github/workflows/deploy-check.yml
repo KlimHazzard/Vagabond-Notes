@@ -1,0 +1,37 @@
+name: Hugo Build and Deploy
+
+on:
+  push:
+    branches:
+      - '**'  # Trigger on all branches except main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      - name: Build the website
+        run: hugo --minify
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/main'  # Deploy on any branch except main
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Use the default GITHUB_TOKEN provided by GitHub
+          publish_dir: ./public
