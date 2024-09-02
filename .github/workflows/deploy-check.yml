@@ -1,9 +1,9 @@
-name: Hugo Build and Test
+name: Hugo Build and Deploy
 
 on:
   push:
     branches:
-      - '**'  # This triggers on all branches
+      - '**'  # Trigger on all branches
 
 jobs:
   build:
@@ -33,7 +33,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/main'  # Deploy only on non-main branches
+    if: github.ref == 'refs/heads/deploy-testing'  # Deploy only on the deploy-testing branch
 
     steps:
       - name: Checkout code
@@ -47,4 +47,8 @@ jobs:
       - name: Build the website
         run: hugo --minify
 
-      # Optional: Add a step here to deploy to a preview environment like Netlify or GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
