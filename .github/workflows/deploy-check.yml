@@ -33,7 +33,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/deploy-testing'  # Deploy only on the deploy-testing branch
+    if: github.ref != 'refs/heads/main'  # Deploy on any branch except main
 
     steps:
       - name: Checkout code
