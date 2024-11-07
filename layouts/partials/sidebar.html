@@ -1,17 +1,15 @@
-<!-- <aside class="sidebar">
-    <nav>
-        <ul>
-            {{ range where .Site.RegularPages "Section" "posts" }}
-                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-            {{ end }}
-        </ul>
-    </nav>
-</aside> -->
-
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/posts/">Posts</a>
-    <!-- Add more links as needed -->
-</div>
+<nav class="sidebar-nav">
+    <div class="sidebar-header">
+        <h2>Navigation</h2>
+    </div>
+    
+    <ul class="sidebar-menu">
+        <li><a href="{{ .Site.BaseURL }}">Home</a></li>
+        
+        {{- range .Site.Menus.main }}
+        <li>
+            <a href="{{ .URL }}">{{ .Name }}</a>
+        </li>
+        {{- end }}
+    </ul>
+</nav>
