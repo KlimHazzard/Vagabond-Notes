@@ -21,8 +21,27 @@
   </head>
   <body><header>
   <h1>
-    <a><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    <a><span style="font-size:30px;cursor:pointer" class="nav-button" onclick="openNav()">&#9776;</span>
 
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    
+      <a href="/posts/buffer-overflow/">Buffer Overflow with a Twist</a>
+    
+      <a href="/commands/kerbrute-users/">Kerbrute Username</a>
+    
+      <a href="/commands/crackmapexec-nocreds/">Crackmapexec</a>
+    
+      <a href="/phase/enumeration/">Enumeration</a>
+    
+      <a href="/credentials/no-credentials/">No credentials</a>
+    
+      <a href="/services/smb/">SMB</a>
+    
+      <a href="/target/windows/">Windows</a>
+    
+  </div>
     </a>
     <a href="http://localhost:1313/">
       
@@ -34,17 +53,15 @@
 <div class="main">
 
 <div class="layout-container">
-    
-
     <div class="content-area">
         <div class="infoText"><p>Welcome to my dinky little blog. Inspired by <a href="https://wadcoms.github.io/" title="WADComs">WADComs</a>, <a href="https://gtfobins.github.io/" title="GTFOBins">GTFOBins</a> and <a href="https://lolbas-project.github.io/" title="LOLBAS">LOLBAS</a>. Never perfect, always working.</p>
 </div>
 <div class="all-tags">
   <ul class="tagsList">
-            <li><a href="javascript:void(0);" class="tag-link" data-term="no credentials">no credentials</a></li>
             <li><a href="javascript:void(0);" class="tag-link" data-term="username">username</a></li>
-            <li><a href="javascript:void(0);" class="tag-link" data-term="enumeration">enumeration</a></li>
             <li><a href="javascript:void(0);" class="tag-link" data-term="kerberos">kerberos</a></li>
+            <li><a href="javascript:void(0);" class="tag-link" data-term="enumeration">enumeration</a></li>
+            <li><a href="javascript:void(0);" class="tag-link" data-term="no credentials">no credentials</a></li>
             <li><a href="javascript:void(0);" class="tag-link" data-term="smb">smb</a></li>
             <li><a href="javascript:void(0);" class="tag-link" data-term="windows">windows</a></li>
   </ul>
@@ -66,10 +83,10 @@
     <tr>
       <td>
         <ul class="tagsList">
-                <li><a >no credentials</a></li>
                 <li><a >username</a></li>
-                <li><a >enumeration</a></li>
                 <li><a >kerberos</a></li>
+                <li><a >enumeration</a></li>
+                <li><a >no credentials</a></li>
                 <li><a >smb</a></li>
                 <li><a >windows</a></li>
         </ul>
@@ -82,10 +99,10 @@
     <tr>
       <td>
         <ul class="tagsList">
-                <li><a >no credentials</a></li>
                 <li><a >username</a></li>
-                <li><a >enumeration</a></li>
                 <li><a >kerberos</a></li>
+                <li><a >enumeration</a></li>
+                <li><a >no credentials</a></li>
                 <li><a >smb</a></li>
                 <li><a >windows</a></li>
         </ul>
@@ -103,5 +120,7 @@
                 href="https://github.com/adityatelange/hugo-index/">Index</a></div>
     </div>
 </footer>
-</body>
+
+    <script src="/sidenav.min.2e26656619fcd1156efc6ee55e77c49a4de6cde7e03350655f00e382b1a8cd2b.js"></script>
+  </body>
 </html>
