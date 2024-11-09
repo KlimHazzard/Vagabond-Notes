@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Buffer Overflow with a Twist | Vagabond Notes</title>
+<title>Buffer Overflow | Vagabond Notes</title>
 <meta name="robots" content='noindex, nofollow'>
 <meta name="description" content="">
 <meta name="generator" content="hugo-index">
@@ -25,19 +25,8 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     
-      <a href="/posts/buffer-overflow/">Buffer Overflow with a Twist</a>
     
-      <a href="/commands/kerbrute-users/">Kerbrute Username</a>
-    
-      <a href="/commands/crackmapexec-nocreds/">Crackmapexec</a>
-    
-      <a href="/phase/enumeration/">Enumeration</a>
-    
-      <a href="/credentials/no-credentials/">No credentials</a>
-    
-      <a href="/services/smb/">SMB</a>
-    
-      <a href="/target/windows/">Windows</a>
+        <a href="/posts/buffer-overflow/">Buffer Overflow</a>
     
   </div>
     </a>
@@ -47,7 +36,7 @@
     </a>
     <span class="hl">/</span>
     <a href="http://localhost:1313/posts/buffer-overflow/">
-      <span>Buffer Overflow with a Twist</span>
+      <span>Buffer Overflow</span>
     </a>
   </h1>
   <p class="desc"></p>
@@ -58,7 +47,16 @@
   
 </ul>
 
-<div class="content"><p>Content about Buffer Overflows</p>
+<div class="content"><p>Everyone and their mother seems to write about buffer overflows at some point. It&rsquo;s 2024 and I&rsquo;m super late to the game, it seems buffer overflows become less and less important. Well here&rsquo;s my write up of buffer overflows based on the old <em>OffSec PEN200</em> courseware.</p>
+<p>The point of exploiting a buffer overflow vulnerability is to get control of registers focusing on the <strong>ESP</strong>, <strong>EBP</strong>, and <strong>EIP</strong> registers. As a hacker I can confirm I have control of these registers if the value within them is what I&rsquo;ve injected. For the purposes of exploitation, controlling these registers</p>
+<ul>
+<li><strong>ESP</strong>:</li>
+<li><strong>EBP</strong>:</li>
+<li><strong>EIP</strong>: Points to the next code instruction to be executed. If the attacker controls this they control what will be executed.</li>
+</ul>
+<p>There&rsquo;s three binaries and I&rsquo;m just going to write-up my steps here.</p>
+<h1 id="vuln1">Vuln1</h1>
+<p>Given the information that I have a vulnerable app, listening on port 7001. I feed it</p>
 </div></div><footer>
     <hr>
     <div class="footer-text">
