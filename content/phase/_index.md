@@ -1,6 +1,7 @@
 ---
 title: "Phase"
-draft: true
+private: true
+draft: false
 headless: true
 aliases:
   - /phase/

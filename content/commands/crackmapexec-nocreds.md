@@ -1,6 +1,7 @@
 ---
 title: "Crackmapexec"
 date: 2024-08-23T00:00:00Z
+private: true
 credentials: ["No credentials"]
 phase: ["Enumeration"]
 services: ["SMB"]

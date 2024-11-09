@@ -1,6 +1,7 @@
 ---
 title: "Kerbrute Username"
 date: 2024-08-25T00:00:00Z
+private: true
 credentials: ["Username"]
 phase: ["Enumeration"]
 services: ["Kerberos"]

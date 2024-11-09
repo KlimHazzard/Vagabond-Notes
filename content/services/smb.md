@@ -1,7 +1,8 @@
 ---
 title: "SMB"
+private: true
 tags: ["SMB"]
-draft: true
+draft: false
 aliases:
   - /services/
 redirect_to: "404.html"

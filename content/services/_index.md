@@ -1,6 +1,7 @@
 ---
 title: "Services"
-draft: true
+private: true
+draft: false
 headless: true
 aliases:
   - /services/

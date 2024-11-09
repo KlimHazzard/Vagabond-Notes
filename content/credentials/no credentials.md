@@ -1,7 +1,8 @@
 ---
 title: "No credentials"
+private: true
 tags: ["No credentials"]
-draft: true
+draft: false
 aliases:
   - /credentials/
 redirect_to: "404.html"

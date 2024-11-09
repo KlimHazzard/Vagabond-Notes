@@ -1,7 +1,8 @@
 ---
 title: "Windows"
+private: true
 tags: ["Windows"]
-draft: true
+draft: false
 aliases:
   - /target/
 redirect_to: "/404.html"

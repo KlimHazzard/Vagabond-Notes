@@ -1,7 +1,8 @@
 ---
 title: "Enumeration"
+private: true
 tags: ["Enumeration"]
-draft: true
+draft: false
 aliases:
   - /phase/
 redirect_to: "404.html"

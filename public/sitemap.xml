@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/buffer-overflow/</loc>
-    <lastmod>2024-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2024-11-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/command/</loc>
     <lastmod>2024-08-25T00:00:00+00:00</lastmod>
@@ -18,9 +21,6 @@
     <lastmod>2024-08-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/commands/kerbrute-users/</loc>
-    <lastmod>2024-08-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2024-08-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/credentials/username/</loc>

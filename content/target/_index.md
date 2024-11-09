@@ -1,6 +1,7 @@
 ---
 title: "Target Environment"
-draft: true
+private: true
+draft: false
 headless: true
 aliases:
   - /target/*

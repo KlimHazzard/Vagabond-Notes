@@ -1,6 +1,7 @@
 ---
 title: "Credentials"
-draft: true
+private: true
+draft: false
 headless: true
 aliases:
   - /credentials/
