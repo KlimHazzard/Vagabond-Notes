@@ -47,11 +47,11 @@
   
 </ul>
 
-<div class="content"><p>Everyone and their mother seems to write about buffer overflows at some point. It&rsquo;s 2024 and I&rsquo;m super late to the game, it seems buffer overflows become less and less important. Well here&rsquo;s my write up of buffer overflows based on the old <em>OffSec PEN200</em> courseware.</p>
-<p>The point of exploiting a buffer overflow vulnerability is to get control of registers focusing on the <strong>ESP</strong>, <strong>EBP</strong>, and <strong>EIP</strong> registers. As a hacker I can confirm I have control of these registers if the value within them is what I&rsquo;ve injected. For the purposes of exploitation, controlling these registers</p>
+<div class="content"><p>Everyone and their mother seems to write about buffer overflows at some point. It&rsquo;s 2024 and I&rsquo;m super late to the game where it seems buffer overflows are becoming out of style. Well here&rsquo;s my write up of buffer overflows based on the old <em>OffSec PEN200</em> courseware.</p>
+<p>The point of exploiting a buffer overflow vulnerability is to get control of registers focusing on the <strong>ESP</strong>, <strong>EBP</strong>, and <strong>EIP</strong> registers. As a hacker I can confirm I have control of these registers if the value within them is what I&rsquo;ve injected. For the purposes of exploitation, controlling these registers accomplishes:</p>
 <ul>
-<li><strong>ESP</strong>:</li>
-<li><strong>EBP</strong>:</li>
+<li><strong>ESP</strong>: The stack is used for storage of data, pointers, and arguments. The stack pointer points to the top of the stack. The attacker can put a malicious payload onto the stack since the stack is meant to grow.</li>
+<li><strong>EBP</strong>: Stores the pointer to the top of the stack when a function is called.</li>
 <li><strong>EIP</strong>: Points to the next code instruction to be executed. If the attacker controls this they control what will be executed.</li>
 </ul>
 <p>There&rsquo;s three binaries and I&rsquo;m just going to write-up my steps here.</p>
