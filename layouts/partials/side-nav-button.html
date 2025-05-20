@@ -3,7 +3,9 @@
 
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    {{ range .Site.RegularPages }}
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    {{ end }}
+    {{- range .Site.RegularPages }}
+        {{- if strings.HasPrefix .File.Path "posts/" }}
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{- end }}
+    {{- end }}
   </div>

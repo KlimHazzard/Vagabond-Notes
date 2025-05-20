@@ -6,8 +6,29 @@
     <description>Recent content in Posts on Vagabond Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WriteUp HtB Forest</title>
+      <link>http://localhost:1313/posts/writeup-htb-forest/</link>
+      <pubDate>Fri, 31 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/writeup-htb-forest/</guid>
+      <description>Commands in order&#xA;Nmap scan all ports, OS, verbose, scripts, fast, output nmap 10.10.10.161 -p- -O -sV -sC -f -oA forest&#xA;DNS, Kerb, LDAP, RPC, http 1.0(?), SMB&#xA;SMB recon no creds search SMB list of drives smbclient -L 10.10.10.161&#xA;DNS recon no creds nslookup will bring up a list of nslookup server 10.10.10.161&#xA;look for domain names 127.0.0.1 127.0.0.2&#xA;RPC recon no creds search using rpcclient, there are subcommands within the terminal rpcclient -U &#39;&#39; -N 10.</description>
+    </item>
+    <item>
+      <title>WriteUp PG Butch</title>
+      <link>http://localhost:1313/posts/writeup-pg-butch/</link>
+      <pubDate>Fri, 31 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/writeup-pg-butch/</guid>
+      <description>Commands in order&#xA;Recon Nmap scan all ports, OS, verbose, scripts, fast, output nmap 192.168.199.63 -p- -O -sV -sC -f -oA butch&#xA;Ports FTP, SMTP, SMB, RPC, IIS HTTP&#xA;SMB recon no creds search SMB list of drives netexec smbclient -L 192.168.129.63 -U &amp;rsquo;&amp;rsquo; - P &#39;&#39;&#xA;HTML recon no creds Basic HTML response curl -v 192.168.199.63&#xA;gobuster </description>
+    </item>
+    <item>
+      <title>WriteUp PG Hetemit</title>
+      <link>http://localhost:1313/posts/writeup-pg-hetemit/</link>
+      <pubDate>Fri, 31 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/writeup-pg-hetemit/</guid>
+      <description>Commands in order&#xA;Recon Nmap scan all ports, OS, verbose, scripts, fast, output nmap 192.168.116.117 -p- -O -sV -sC -f -oA hetemit&#xA;Ports FTP, SSH, HTTP, SMB, biimenu(?), Http Python(?)&#xA;SMB no creds Nothing FTP no creds refused connections(?) Connection refused ftp 192.168.116.117&#xA;21/tcp open ftp vsftpd 3.0.3 | ftp-anon: Anonymous FTP login allowed (FTP code 230) |_Can&amp;rsquo;t get directory listing: TIMEOUT | ftp-syst: | STAT: | FTP server status: | Connected to 192.</description>
+    </item>
     <item>
       <title>Buffer Overflow with a Twist</title>
       <link>http://localhost:1313/posts/buffer-overflow/</link>
