@@ -5,34 +5,120 @@ type: "post"
 draft: true
 ---
 
-Commands in order
+# Recon
+## Nmap scan
 
-# Nmap scan
-## all ports, OS, verbose, scripts, fast, output
+I'm looking for all ports, OS, verbose, scripts, fast, output.
+
 ```nmap 10.10.10.161 -p- -O -sV -sC -f -oA forest```
+```cmd
+Nmap scan report for 10.10.10.161
+Host is up (0.16s latency).
+Not shown: 65511 closed tcp ports (reset)
+PORT      STATE SERVICE      VERSION
+53/tcp    open  domain       Simple DNS Plus
+88/tcp    open  kerberos-sec Microsoft Windows Kerberos (server time: 2025-01-11 18:26:00Z)
+135/tcp   open  msrpc        Microsoft Windows RPC
+139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
+389/tcp   open  ldap         Microsoft Windows Active Directory LDAP (Domain: htb.local, Site: Default-First-Site-Name)
+445/tcp   open  microsoft-ds Windows Server 2016 Standard 14393 microsoft-ds (workgroup: HTB)
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http   Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  tcpwrapped
+3268/tcp  open  ldap         Microsoft Windows Active Directory LDAP (Domain: htb.local, Site: Default-First-Site-Name)
+3269/tcp  open  tcpwrapped
+5985/tcp  open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+9389/tcp  open  mc-nmf       .NET Message Framing
+47001/tcp open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+49664/tcp open  msrpc        Microsoft Windows RPC
+49665/tcp open  msrpc        Microsoft Windows RPC
+49666/tcp open  msrpc        Microsoft Windows RPC
+49668/tcp open  msrpc        Microsoft Windows RPC
+49671/tcp open  msrpc        Microsoft Windows RPC
+49676/tcp open  ncacn_http   Microsoft Windows RPC over HTTP 1.0
+49677/tcp open  msrpc        Microsoft Windows RPC
+49684/tcp open  msrpc        Microsoft Windows RPC
+49706/tcp open  msrpc        Microsoft Windows RPC
+49954/tcp open  msrpc        Microsoft Windows RPC
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.94SVN%E=4%D=1/11%OT=53%CT=1%CU=38239%PV=Y%DS=2%DC=I%G=Y%TM=6782
+OS:B670%P=x86_64-pc-linux-gnu)SEQ(SP=FE%GCD=1%ISR=10D%TI=I%CI=I%II=I%SS=S%T
+OS:S=A)SEQ(SP=FE%GCD=1%ISR=10E%TS=A)OPS(O1=M53CNW8ST11%O2=M53CNW8ST11%O3=M5
+OS:3CNW8NNT11%O4=M53CNW8ST11%O5=M53CNW8ST11%O6=M53CST11)WIN(W1=2000%W2=2000
+OS:%W3=2000%W4=2000%W5=2000%W6=2000)ECN(R=Y%DF=Y%T=80%W=2000%O=M53CNW8NNS%C
+OS:C=Y%Q=)T1(R=Y%DF=Y%T=80%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%
+OS:T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD
+OS:=0%Q=)T6(R=Y%DF=Y%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)T7(R=N)U1(R=Y%DF=N%T=8
+OS:0%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=80%CD=Z)
 
-DNS, Kerb, LDAP, RPC, http 1.0(?), SMB
+Network Distance: 2 hops
+Service Info: Host: FOREST; OS: Windows; CPE: cpe:/o:microsoft:windows
 
-# SMB recon no creds
-## search SMB list of drives
+Host script results:
+| smb2-time: 
+|   date: 2025-01-11T18:27:07
+|_  start_date: 2025-01-11T18:10:00
+|_clock-skew: mean: 2h46m50s, deviation: 4h37m10s, median: 6m48s
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled and required
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: required
+| smb-os-discovery: 
+|   OS: Windows Server 2016 Standard 14393 (Windows Server 2016 Standard 6.3)
+|   Computer name: FOREST
+|   NetBIOS computer name: FOREST\x00
+|   Domain name: htb.local
+|   Forest name: htb.local
+|   FQDN: FOREST.htb.local
+|_  System time: 2025-01-11T10:27:09-08:00
+```
+
+Vectors for recon DNS, Kerb, LDAP, RPC (with http 1.0?), SMB
+
+## SMB recon no creds
+
+Search SMB list of drives
+
 ```smbclient -L 10.10.10.161```
 
-# DNS recon no creds
-## nslookup will bring up a list of 
+There's nothing
+
+## DNS recon no creds
+
+Nslookup will bring up a list of 
+
 ```nslookup```
 ```server 10.10.10.161```
-## look for domain names
+
+### look for domain names
+
 ```127.0.0.1```
 ```127.0.0.2```
+```forest.htb.local```
+```htb.local```
 
-# RPC recon no creds
-## search using rpcclient, there are subcommands within the terminal
+## RPC recon no creds
+### search using rpcclient, there are subcommands within the terminal
 ```rpcclient -U '' -N 10.10.10.161```
+There's again nothing
+
 ## At this point I don't know any users
 ```lsaquery```
+```cmd
 Domain Name: HTB
 Domain Sid: S-1-5-21-3072663084-364016917-1341370565
+```
 ```enumdomgroups```
+```cmd
 group:[Enterprise Read-only Domain Controllers] rid:[0x1f2]
 group:[Domain Admins] rid:[0x200]
 group:[Domain Users] rid:[0x201]
@@ -71,7 +157,9 @@ group:[$D31000-NSEL5BRJ63V7] rid:[0x46d]
 group:[Service Accounts] rid:[0x47c]
 group:[Privileged IT Accounts] rid:[0x47d]
 group:[test] rid:[0x13ed]
+```
 ```enumdomusers```
+```cmd
 user:[Administrator] rid:[0x1f4]
 user:[Guest] rid:[0x1f5]
 user:[krbtgt] rid:[0x1f6]
@@ -103,17 +191,20 @@ user:[svc-alfresco] rid:[0x47b]
 user:[andy] rid:[0x47e]
 user:[mark] rid:[0x47f]
 user:[santi] rid:[0x480]
+```
 
 ## Remote Procedure Call connects 
 RPC ties services remotely in a Windows environment. In some configurations, RPC services may not require authentication for certain queries. This can allow an unauthenticated user to gather info about the domain and users.
 
 ## Now we have some users
+```cmd
 user:[sebastien] rid:[0x479]
 user:[lucinda] rid:[0x47a]
 user:[svc-alfresco] rid:[0x47b]
 user:[andy] rid:[0x47e]
 user:[mark] rid:[0x47f]
 user:[santi] rid:[0x480]
+```
 
 # LDAP Enumeration with some usernames
 ## Initial ldapsearch
