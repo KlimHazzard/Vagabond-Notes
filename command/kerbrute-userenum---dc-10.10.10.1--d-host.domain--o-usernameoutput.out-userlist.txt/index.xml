@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kerbrute Userenum --Dc 10.10.10.1 -D Host.domain -O UsernameOutput.out Userlist.txt
+ on Vagabond Notes</title>
+    <link>http://localhost:1313/command/kerbrute-userenum---dc-10.10.10.1--d-host.domain--o-usernameoutput.out-userlist.txt/</link>
+    <description>Recent content in Kerbrute Userenum --Dc 10.10.10.1 -D Host.domain -O UsernameOutput.out Userlist.txt
+ on Vagabond Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/command/kerbrute-userenum---dc-10.10.10.1--d-host.domain--o-usernameoutput.out-userlist.txt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kerbrute Username</title>
+      <link>http://localhost:1313/commands/kerbrute-users/</link>
+      <pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/commands/kerbrute-users/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
